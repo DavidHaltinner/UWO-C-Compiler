@@ -1,0 +1,25 @@
+// more tests of booleans
+
+bool y;
+
+int main(){
+	bool x;
+	x = false;
+	//x = true;
+	y = (x && true) || (false && x); // y = false
+	print("X is ", x, "\n"); // false
+	print("Y is ", y, "\n"); // false
+
+	// fails
+	if(false || y && true || x){
+		print("Its true", "\n");
+	}
+	else{
+		int i;
+		i = 0;
+		while(i < 3 || x){
+			print("Its false", "\n");
+			i = i + 1;
+		}
+	}
+}

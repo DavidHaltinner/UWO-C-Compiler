@@ -1,0 +1,2134 @@
+Conflict in state 144 between rule 25 and token ELSE resolved as shift.
+
+
+Grammar
+
+  Number, Line, Rule
+    1 114 program -> globalList functionList
+    2 120 globalList -> globalList variableDecl
+    3 122 globalList -> /* empty */
+    4 126 functionList -> functionList functionDecl
+    5 128 functionList -> functionDecl
+    6 133 type -> INT
+    7 134 type -> BOOL
+    8 137 variableDecl -> type identifier SEMICOLON
+    9 139 variableDecl -> type identifier LBRACKET intLiteral RBRACKET SEMICOLON
+   10 143 functionDecl -> VOID identifier parameters LBRACE varList stmtList RBRACE
+   11 146 functionDecl -> type identifier parameters LBRACE varList stmtList RBRACE
+   12 150 parameters -> LPAREN RPAREN
+   13 153 parameters -> LPAREN paramList RPAREN
+   14 157 paramList -> paramList COMMA param
+   15 159 paramList -> param
+   16 164 param -> type identifier
+   17 166 param -> type identifier LBRACKET RBRACKET
+   18 170 varList -> /* empty */
+   19 171 varList -> varList variableDecl
+   20 175 stmtList -> stmtList stmt
+   21 177 stmtList -> /* empty */
+   22 181 stmt -> target ASSIGN expression SEMICOLON
+   23 183 stmt -> PRINT LPAREN printList RPAREN SEMICOLON
+   24 185 stmt -> COUT AARROW coutList SEMICOLON
+   25 187 stmt -> IF LPAREN expression RPAREN stmt
+   26 189 stmt -> IF LPAREN expression RPAREN stmt ELSE stmt
+   27 191 stmt -> WHILE LPAREN expression RPAREN stmt
+   28 193 stmt -> LBRACE varList stmtList RBRACE
+   29 195 stmt -> RETURN SEMICOLON
+   30 197 stmt -> RETURN expression SEMICOLON
+   31 199 stmt -> identifier LPAREN RPAREN SEMICOLON
+   32 202 stmt -> identifier LPAREN argList RPAREN SEMICOLON
+   33 206 argList -> argList COMMA expression
+   34 208 argList -> expression
+   35 212 printList -> printList COMMA printItem
+   36 214 printList -> printItem
+   37 219 printItem -> stringLiteral
+   38 220 printItem -> expression
+   39 223 coutList -> coutList AARROW coutItem
+   40 225 coutList -> coutItem
+   41 230 coutItem -> stringLiteral
+   42 231 coutItem -> expression
+   43 233 expression -> ORexpression
+   44 235 ORexpression -> ORlist
+   45 237 ORlist -> ORlist OR ANDexpression
+   46 239 ORlist -> ANDexpression
+   47 243 ANDexpression -> ANDlist
+   48 245 ANDlist -> ANDlist AND term
+   49 247 ANDlist -> term
+   50 251 term -> factor LT factor
+   51 253 term -> factor GT factor
+   52 255 term -> factor LEQ factor
+   53 257 term -> factor GEQ factor
+   54 259 term -> factor EQ factor
+   55 261 term -> factor NEQ factor
+   56 263 term -> factor
+   57 267 factor -> factor PLUS primary
+   58 269 factor -> factor MINUS primary
+   59 271 factor -> primary
+   60 275 primary -> primary TIMES unit
+   61 276 primary -> primary SLASH unit
+   62 277 primary -> unit
+   63 280 unit -> nameVar
+   64 281 unit -> arrayVar
+   65 282 unit -> intLiteral
+   66 283 unit -> MINUS intLiteral
+   67 284 unit -> identifier LPAREN RPAREN
+   68 285 unit -> identifier LPAREN argList RPAREN
+   69 286 unit -> TRUE
+   70 287 unit -> FALSE
+   71 288 unit -> LPAREN expression RPAREN
+   72 291 nameVar -> identifier
+   73 293 arrayVar -> identifier LBRACKET expression RBRACKET
+   74 295 intLiteral -> INTLITERAL
+   75 298 stringLiteral -> STRINGLITERAL
+   76 300 target -> identifier
+   77 303 target -> identifier LBRACKET expression RBRACKET
+   78 307 identifier -> ID
+
+
+Terminals, with rules where they appear
+
+$ (-1)
+error (256)
+SEMICOLON (257) 8 9 22 23 24 29 30 31 32
+RPAREN (258) 12 13 23 25 26 27 31 32 67 68 71
+RBRACE (259) 10 11 28
+RBRACKET (260) 9 17 73 77
+ID (261) 78
+INTLITERAL (262) 74
+STRINGLITERAL (263) 75
+ASSIGN (264) 22
+PRINT (265) 23
+INT (266) 6
+VOID (267) 10
+TRUE (268) 69
+FALSE (269) 70
+LPAREN (270) 12 13 23 25 26 27 31 32 67 68 71
+LBRACE (271) 10 11 28
+LBRACKET (272) 9 17 73 77
+PLUS (273) 57
+MINUS (274) 58 66
+TIMES (275) 60
+SLASH (276) 61
+BOOL (277) 7
+AND (278) 48
+OR (279) 45
+IF (280) 25 26
+ELSE (281) 26
+WHILE (282) 27
+RETURN (283) 29 30
+LT (284) 50
+GT (285) 51
+LEQ (286) 52
+GEQ (287) 53
+EQ (288) 54
+NEQ (289) 55
+COMMA (290) 14 33 35
+COUT (291) 24
+AARROW (292) 24 39
+THEN (293)
+
+
+Nonterminals, with rules where they appear
+
+program (40)
+    on left: 1
+globalList (41)
+    on left: 2 3, on right: 1 2
+functionList (42)
+    on left: 4 5, on right: 1 4
+type (43)
+    on left: 6 7, on right: 8 9 11 16 17
+variableDecl (44)
+    on left: 8 9, on right: 2 19
+functionDecl (45)
+    on left: 10 11, on right: 4 5
+parameters (46)
+    on left: 12 13, on right: 10 11
+paramList (47)
+    on left: 14 15, on right: 13 14
+param (48)
+    on left: 16 17, on right: 14 15
+varList (49)
+    on left: 18 19, on right: 10 11 19 28
+stmtList (50)
+    on left: 20 21, on right: 10 11 20 28
+stmt (51)
+    on left: 22 23 24 25 26 27 28 29 30 31 32, on right: 20 25 26 27
+argList (52)
+    on left: 33 34, on right: 32 33 68
+printList (53)
+    on left: 35 36, on right: 23 35
+printItem (54)
+    on left: 37 38, on right: 35 36
+coutList (55)
+    on left: 39 40, on right: 24 39
+coutItem (56)
+    on left: 41 42, on right: 39 40
+expression (57)
+    on left: 43, on right: 22 25 26 27 30 33 34 38 42 71 73 77
+ORexpression (58)
+    on left: 44, on right: 43
+ORlist (59)
+    on left: 45 46, on right: 44 45
+ANDexpression (60)
+    on left: 47, on right: 45 46
+ANDlist (61)
+    on left: 48 49, on right: 47 48
+term (62)
+    on left: 50 51 52 53 54 55 56, on right: 48 49
+factor (63)
+    on left: 57 58 59, on right: 50 51 52 53 54 55 56 57 58
+primary (64)
+    on left: 60 61 62, on right: 57 58 59 60 61
+unit (65)
+    on left: 63 64 65 66 67 68 69 70 71, on right: 60 61 62
+nameVar (66)
+    on left: 72, on right: 63
+arrayVar (67)
+    on left: 73, on right: 64
+intLiteral (68)
+    on left: 74, on right: 9 65 66
+stringLiteral (69)
+    on left: 75, on right: 37 41
+target (70)
+    on left: 76 77, on right: 22
+identifier (71)
+    on left: 78, on right: 8 9 10 11 16 17 31 32 67 68 72 73 76 77
+
+
+state 0
+
+    $default	reduce using rule 3 (globalList)
+
+    program	go to state 153
+    globalList	go to state 1
+
+
+
+state 1
+
+    program  ->  globalList . functionList   (rule 1)
+    globalList  ->  globalList . variableDecl   (rule 2)
+
+    INT 	shift, and go to state 2
+    VOID	shift, and go to state 3
+    BOOL	shift, and go to state 4
+
+    functionList	go to state 5
+    type	go to state 6
+    variableDecl	go to state 7
+    functionDecl	go to state 8
+
+
+
+state 2
+
+    type  ->  INT .   (rule 6)
+
+    $default	reduce using rule 6 (type)
+
+
+
+state 3
+
+    functionDecl  ->  VOID . identifier parameters LBRACE varList stmtList RBRACE   (rule 10)
+
+    ID  	shift, and go to state 9
+
+    identifier	go to state 10
+
+
+
+state 4
+
+    type  ->  BOOL .   (rule 7)
+
+    $default	reduce using rule 7 (type)
+
+
+
+state 5
+
+    program  ->  globalList functionList .   (rule 1)
+    functionList  ->  functionList . functionDecl   (rule 4)
+
+    INT 	shift, and go to state 2
+    VOID	shift, and go to state 3
+    BOOL	shift, and go to state 4
+
+    $default	reduce using rule 1 (program)
+
+    type	go to state 11
+    functionDecl	go to state 12
+
+
+
+state 6
+
+    variableDecl  ->  type . identifier SEMICOLON   (rule 8)
+    variableDecl  ->  type . identifier LBRACKET intLiteral RBRACKET SEMICOLON   (rule 9)
+    functionDecl  ->  type . identifier parameters LBRACE varList stmtList RBRACE   (rule 11)
+
+    ID  	shift, and go to state 9
+
+    identifier	go to state 13
+
+
+
+state 7
+
+    globalList  ->  globalList variableDecl .   (rule 2)
+
+    $default	reduce using rule 2 (globalList)
+
+
+
+state 8
+
+    functionList  ->  functionDecl .   (rule 5)
+
+    $default	reduce using rule 5 (functionList)
+
+
+
+state 9
+
+    identifier  ->  ID .   (rule 78)
+
+    $default	reduce using rule 78 (identifier)
+
+
+
+state 10
+
+    functionDecl  ->  VOID identifier . parameters LBRACE varList stmtList RBRACE   (rule 10)
+
+    LPAREN	shift, and go to state 14
+
+    parameters	go to state 15
+
+
+
+state 11
+
+    functionDecl  ->  type . identifier parameters LBRACE varList stmtList RBRACE   (rule 11)
+
+    ID  	shift, and go to state 9
+
+    identifier	go to state 16
+
+
+
+state 12
+
+    functionList  ->  functionList functionDecl .   (rule 4)
+
+    $default	reduce using rule 4 (functionList)
+
+
+
+state 13
+
+    variableDecl  ->  type identifier . SEMICOLON   (rule 8)
+    variableDecl  ->  type identifier . LBRACKET intLiteral RBRACKET SEMICOLON   (rule 9)
+    functionDecl  ->  type identifier . parameters LBRACE varList stmtList RBRACE   (rule 11)
+
+    SEMICOLON	shift, and go to state 17
+    LPAREN	shift, and go to state 14
+    LBRACKET	shift, and go to state 18
+
+    parameters	go to state 19
+
+
+
+state 14
+
+    parameters  ->  LPAREN . RPAREN   (rule 12)
+    parameters  ->  LPAREN . paramList RPAREN   (rule 13)
+
+    RPAREN	shift, and go to state 20
+    INT 	shift, and go to state 2
+    BOOL	shift, and go to state 4
+
+    type	go to state 21
+    paramList	go to state 22
+    param	go to state 23
+
+
+
+state 15
+
+    functionDecl  ->  VOID identifier parameters . LBRACE varList stmtList RBRACE   (rule 10)
+
+    LBRACE	shift, and go to state 24
+
+
+
+state 16
+
+    functionDecl  ->  type identifier . parameters LBRACE varList stmtList RBRACE   (rule 11)
+
+    LPAREN	shift, and go to state 14
+
+    parameters	go to state 19
+
+
+
+state 17
+
+    variableDecl  ->  type identifier SEMICOLON .   (rule 8)
+
+    $default	reduce using rule 8 (variableDecl)
+
+
+
+state 18
+
+    variableDecl  ->  type identifier LBRACKET . intLiteral RBRACKET SEMICOLON   (rule 9)
+
+    INTLITERAL	shift, and go to state 25
+
+    intLiteral	go to state 26
+
+
+
+state 19
+
+    functionDecl  ->  type identifier parameters . LBRACE varList stmtList RBRACE   (rule 11)
+
+    LBRACE	shift, and go to state 27
+
+
+
+state 20
+
+    parameters  ->  LPAREN RPAREN .   (rule 12)
+
+    $default	reduce using rule 12 (parameters)
+
+
+
+state 21
+
+    param  ->  type . identifier   (rule 16)
+    param  ->  type . identifier LBRACKET RBRACKET   (rule 17)
+
+    ID  	shift, and go to state 9
+
+    identifier	go to state 28
+
+
+
+state 22
+
+    parameters  ->  LPAREN paramList . RPAREN   (rule 13)
+    paramList  ->  paramList . COMMA param   (rule 14)
+
+    RPAREN	shift, and go to state 29
+    COMMA	shift, and go to state 30
+
+
+
+state 23
+
+    paramList  ->  param .   (rule 15)
+
+    $default	reduce using rule 15 (paramList)
+
+
+
+state 24
+
+    functionDecl  ->  VOID identifier parameters LBRACE . varList stmtList RBRACE   (rule 10)
+
+    $default	reduce using rule 18 (varList)
+
+    varList	go to state 31
+
+
+
+state 25
+
+    intLiteral  ->  INTLITERAL .   (rule 74)
+
+    $default	reduce using rule 74 (intLiteral)
+
+
+
+state 26
+
+    variableDecl  ->  type identifier LBRACKET intLiteral . RBRACKET SEMICOLON   (rule 9)
+
+    RBRACKET	shift, and go to state 32
+
+
+
+state 27
+
+    functionDecl  ->  type identifier parameters LBRACE . varList stmtList RBRACE   (rule 11)
+
+    $default	reduce using rule 18 (varList)
+
+    varList	go to state 33
+
+
+
+state 28
+
+    param  ->  type identifier .   (rule 16)
+    param  ->  type identifier . LBRACKET RBRACKET   (rule 17)
+
+    LBRACKET	shift, and go to state 34
+
+    $default	reduce using rule 16 (param)
+
+
+
+state 29
+
+    parameters  ->  LPAREN paramList RPAREN .   (rule 13)
+
+    $default	reduce using rule 13 (parameters)
+
+
+
+state 30
+
+    paramList  ->  paramList COMMA . param   (rule 14)
+
+    INT 	shift, and go to state 2
+    BOOL	shift, and go to state 4
+
+    type	go to state 21
+    param	go to state 35
+
+
+
+state 31
+
+    functionDecl  ->  VOID identifier parameters LBRACE varList . stmtList RBRACE   (rule 10)
+    varList  ->  varList . variableDecl   (rule 19)
+
+    INT 	shift, and go to state 2
+    BOOL	shift, and go to state 4
+
+    $default	reduce using rule 21 (stmtList)
+
+    type	go to state 36
+    variableDecl	go to state 37
+    stmtList	go to state 38
+
+
+
+state 32
+
+    variableDecl  ->  type identifier LBRACKET intLiteral RBRACKET . SEMICOLON   (rule 9)
+
+    SEMICOLON	shift, and go to state 39
+
+
+
+state 33
+
+    functionDecl  ->  type identifier parameters LBRACE varList . stmtList RBRACE   (rule 11)
+    varList  ->  varList . variableDecl   (rule 19)
+
+    INT 	shift, and go to state 2
+    BOOL	shift, and go to state 4
+
+    $default	reduce using rule 21 (stmtList)
+
+    type	go to state 36
+    variableDecl	go to state 37
+    stmtList	go to state 40
+
+
+
+state 34
+
+    param  ->  type identifier LBRACKET . RBRACKET   (rule 17)
+
+    RBRACKET	shift, and go to state 41
+
+
+
+state 35
+
+    paramList  ->  paramList COMMA param .   (rule 14)
+
+    $default	reduce using rule 14 (paramList)
+
+
+
+state 36
+
+    variableDecl  ->  type . identifier SEMICOLON   (rule 8)
+    variableDecl  ->  type . identifier LBRACKET intLiteral RBRACKET SEMICOLON   (rule 9)
+
+    ID  	shift, and go to state 9
+
+    identifier	go to state 42
+
+
+
+state 37
+
+    varList  ->  varList variableDecl .   (rule 19)
+
+    $default	reduce using rule 19 (varList)
+
+
+
+state 38
+
+    functionDecl  ->  VOID identifier parameters LBRACE varList stmtList . RBRACE   (rule 10)
+    stmtList  ->  stmtList . stmt   (rule 20)
+
+    RBRACE	shift, and go to state 43
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 50
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 39
+
+    variableDecl  ->  type identifier LBRACKET intLiteral RBRACKET SEMICOLON .   (rule 9)
+
+    $default	reduce using rule 9 (variableDecl)
+
+
+
+state 40
+
+    functionDecl  ->  type identifier parameters LBRACE varList stmtList . RBRACE   (rule 11)
+    stmtList  ->  stmtList . stmt   (rule 20)
+
+    RBRACE	shift, and go to state 53
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 50
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 41
+
+    param  ->  type identifier LBRACKET RBRACKET .   (rule 17)
+
+    $default	reduce using rule 17 (param)
+
+
+
+state 42
+
+    variableDecl  ->  type identifier . SEMICOLON   (rule 8)
+    variableDecl  ->  type identifier . LBRACKET intLiteral RBRACKET SEMICOLON   (rule 9)
+
+    SEMICOLON	shift, and go to state 17
+    LBRACKET	shift, and go to state 18
+
+
+
+state 43
+
+    functionDecl  ->  VOID identifier parameters LBRACE varList stmtList RBRACE .   (rule 10)
+
+    $default	reduce using rule 10 (functionDecl)
+
+
+
+state 44
+
+    stmt  ->  PRINT . LPAREN printList RPAREN SEMICOLON   (rule 23)
+
+    LPAREN	shift, and go to state 54
+
+
+
+state 45
+
+    stmt  ->  LBRACE . varList stmtList RBRACE   (rule 28)
+
+    $default	reduce using rule 18 (varList)
+
+    varList	go to state 55
+
+
+
+state 46
+
+    stmt  ->  IF . LPAREN expression RPAREN stmt   (rule 25)
+    stmt  ->  IF . LPAREN expression RPAREN stmt ELSE stmt   (rule 26)
+
+    LPAREN	shift, and go to state 56
+
+
+
+state 47
+
+    stmt  ->  WHILE . LPAREN expression RPAREN stmt   (rule 27)
+
+    LPAREN	shift, and go to state 57
+
+
+
+state 48
+
+    stmt  ->  RETURN . SEMICOLON   (rule 29)
+    stmt  ->  RETURN . expression SEMICOLON   (rule 30)
+
+    SEMICOLON	shift, and go to state 58
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 63
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 49
+
+    stmt  ->  COUT . AARROW coutList SEMICOLON   (rule 24)
+
+    AARROW	shift, and go to state 76
+
+
+
+state 50
+
+    stmtList  ->  stmtList stmt .   (rule 20)
+
+    $default	reduce using rule 20 (stmtList)
+
+
+
+state 51
+
+    stmt  ->  target . ASSIGN expression SEMICOLON   (rule 22)
+
+    ASSIGN	shift, and go to state 77
+
+
+
+state 52
+
+    stmt  ->  identifier . LPAREN RPAREN SEMICOLON   (rule 31)
+    stmt  ->  identifier . LPAREN argList RPAREN SEMICOLON   (rule 32)
+    target  ->  identifier .   (rule 76)
+    target  ->  identifier . LBRACKET expression RBRACKET   (rule 77)
+
+    LPAREN	shift, and go to state 78
+    LBRACKET	shift, and go to state 79
+
+    $default	reduce using rule 76 (target)
+
+
+
+state 53
+
+    functionDecl  ->  type identifier parameters LBRACE varList stmtList RBRACE .   (rule 11)
+
+    $default	reduce using rule 11 (functionDecl)
+
+
+
+state 54
+
+    stmt  ->  PRINT LPAREN . printList RPAREN SEMICOLON   (rule 23)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    STRINGLITERAL	shift, and go to state 80
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    printList	go to state 81
+    printItem	go to state 82
+    expression	go to state 83
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    stringLiteral	go to state 84
+    identifier	go to state 75
+
+
+
+state 55
+
+    varList  ->  varList . variableDecl   (rule 19)
+    stmt  ->  LBRACE varList . stmtList RBRACE   (rule 28)
+
+    INT 	shift, and go to state 2
+    BOOL	shift, and go to state 4
+
+    $default	reduce using rule 21 (stmtList)
+
+    type	go to state 36
+    variableDecl	go to state 37
+    stmtList	go to state 85
+
+
+
+state 56
+
+    stmt  ->  IF LPAREN . expression RPAREN stmt   (rule 25)
+    stmt  ->  IF LPAREN . expression RPAREN stmt ELSE stmt   (rule 26)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 86
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 57
+
+    stmt  ->  WHILE LPAREN . expression RPAREN stmt   (rule 27)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 87
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 58
+
+    stmt  ->  RETURN SEMICOLON .   (rule 29)
+
+    $default	reduce using rule 29 (stmt)
+
+
+
+state 59
+
+    unit  ->  TRUE .   (rule 69)
+
+    $default	reduce using rule 69 (unit)
+
+
+
+state 60
+
+    unit  ->  FALSE .   (rule 70)
+
+    $default	reduce using rule 70 (unit)
+
+
+
+state 61
+
+    unit  ->  LPAREN . expression RPAREN   (rule 71)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 88
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 62
+
+    unit  ->  MINUS . intLiteral   (rule 66)
+
+    INTLITERAL	shift, and go to state 25
+
+    intLiteral	go to state 89
+
+
+
+state 63
+
+    stmt  ->  RETURN expression . SEMICOLON   (rule 30)
+
+    SEMICOLON	shift, and go to state 90
+
+
+
+state 64
+
+    expression  ->  ORexpression .   (rule 43)
+
+    $default	reduce using rule 43 (expression)
+
+
+
+state 65
+
+    ORexpression  ->  ORlist .   (rule 44)
+    ORlist  ->  ORlist . OR ANDexpression   (rule 45)
+
+    OR  	shift, and go to state 91
+
+    $default	reduce using rule 44 (ORexpression)
+
+
+
+state 66
+
+    ORlist  ->  ANDexpression .   (rule 46)
+
+    $default	reduce using rule 46 (ORlist)
+
+
+
+state 67
+
+    ANDexpression  ->  ANDlist .   (rule 47)
+    ANDlist  ->  ANDlist . AND term   (rule 48)
+
+    AND 	shift, and go to state 92
+
+    $default	reduce using rule 47 (ANDexpression)
+
+
+
+state 68
+
+    ANDlist  ->  term .   (rule 49)
+
+    $default	reduce using rule 49 (ANDlist)
+
+
+
+state 69
+
+    term  ->  factor . LT factor   (rule 50)
+    term  ->  factor . GT factor   (rule 51)
+    term  ->  factor . LEQ factor   (rule 52)
+    term  ->  factor . GEQ factor   (rule 53)
+    term  ->  factor . EQ factor   (rule 54)
+    term  ->  factor . NEQ factor   (rule 55)
+    term  ->  factor .   (rule 56)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+    LT  	shift, and go to state 95
+    GT  	shift, and go to state 96
+    LEQ 	shift, and go to state 97
+    GEQ 	shift, and go to state 98
+    EQ  	shift, and go to state 99
+    NEQ 	shift, and go to state 100
+
+    $default	reduce using rule 56 (term)
+
+
+
+state 70
+
+    factor  ->  primary .   (rule 59)
+    primary  ->  primary . TIMES unit   (rule 60)
+    primary  ->  primary . SLASH unit   (rule 61)
+
+    TIMES	shift, and go to state 101
+    SLASH	shift, and go to state 102
+
+    $default	reduce using rule 59 (factor)
+
+
+
+state 71
+
+    primary  ->  unit .   (rule 62)
+
+    $default	reduce using rule 62 (primary)
+
+
+
+state 72
+
+    unit  ->  nameVar .   (rule 63)
+
+    $default	reduce using rule 63 (unit)
+
+
+
+state 73
+
+    unit  ->  arrayVar .   (rule 64)
+
+    $default	reduce using rule 64 (unit)
+
+
+
+state 74
+
+    unit  ->  intLiteral .   (rule 65)
+
+    $default	reduce using rule 65 (unit)
+
+
+
+state 75
+
+    unit  ->  identifier . LPAREN RPAREN   (rule 67)
+    unit  ->  identifier . LPAREN argList RPAREN   (rule 68)
+    nameVar  ->  identifier .   (rule 72)
+    arrayVar  ->  identifier . LBRACKET expression RBRACKET   (rule 73)
+
+    LPAREN	shift, and go to state 103
+    LBRACKET	shift, and go to state 104
+
+    $default	reduce using rule 72 (nameVar)
+
+
+
+state 76
+
+    stmt  ->  COUT AARROW . coutList SEMICOLON   (rule 24)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    STRINGLITERAL	shift, and go to state 80
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    coutList	go to state 105
+    coutItem	go to state 106
+    expression	go to state 107
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    stringLiteral	go to state 108
+    identifier	go to state 75
+
+
+
+state 77
+
+    stmt  ->  target ASSIGN . expression SEMICOLON   (rule 22)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 109
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 78
+
+    stmt  ->  identifier LPAREN . RPAREN SEMICOLON   (rule 31)
+    stmt  ->  identifier LPAREN . argList RPAREN SEMICOLON   (rule 32)
+
+    RPAREN	shift, and go to state 110
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    argList	go to state 111
+    expression	go to state 112
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 79
+
+    target  ->  identifier LBRACKET . expression RBRACKET   (rule 77)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 113
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 80
+
+    stringLiteral  ->  STRINGLITERAL .   (rule 75)
+
+    $default	reduce using rule 75 (stringLiteral)
+
+
+
+state 81
+
+    stmt  ->  PRINT LPAREN printList . RPAREN SEMICOLON   (rule 23)
+    printList  ->  printList . COMMA printItem   (rule 35)
+
+    RPAREN	shift, and go to state 114
+    COMMA	shift, and go to state 115
+
+
+
+state 82
+
+    printList  ->  printItem .   (rule 36)
+
+    $default	reduce using rule 36 (printList)
+
+
+
+state 83
+
+    printItem  ->  expression .   (rule 38)
+
+    $default	reduce using rule 38 (printItem)
+
+
+
+state 84
+
+    printItem  ->  stringLiteral .   (rule 37)
+
+    $default	reduce using rule 37 (printItem)
+
+
+
+state 85
+
+    stmtList  ->  stmtList . stmt   (rule 20)
+    stmt  ->  LBRACE varList stmtList . RBRACE   (rule 28)
+
+    RBRACE	shift, and go to state 116
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 50
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 86
+
+    stmt  ->  IF LPAREN expression . RPAREN stmt   (rule 25)
+    stmt  ->  IF LPAREN expression . RPAREN stmt ELSE stmt   (rule 26)
+
+    RPAREN	shift, and go to state 117
+
+
+
+state 87
+
+    stmt  ->  WHILE LPAREN expression . RPAREN stmt   (rule 27)
+
+    RPAREN	shift, and go to state 118
+
+
+
+state 88
+
+    unit  ->  LPAREN expression . RPAREN   (rule 71)
+
+    RPAREN	shift, and go to state 119
+
+
+
+state 89
+
+    unit  ->  MINUS intLiteral .   (rule 66)
+
+    $default	reduce using rule 66 (unit)
+
+
+
+state 90
+
+    stmt  ->  RETURN expression SEMICOLON .   (rule 30)
+
+    $default	reduce using rule 30 (stmt)
+
+
+
+state 91
+
+    ORlist  ->  ORlist OR . ANDexpression   (rule 45)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    ANDexpression	go to state 120
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 92
+
+    ANDlist  ->  ANDlist AND . term   (rule 48)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    term	go to state 121
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 93
+
+    factor  ->  factor PLUS . primary   (rule 57)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    primary	go to state 122
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 94
+
+    factor  ->  factor MINUS . primary   (rule 58)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    primary	go to state 123
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 95
+
+    term  ->  factor LT . factor   (rule 50)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 124
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 96
+
+    term  ->  factor GT . factor   (rule 51)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 125
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 97
+
+    term  ->  factor LEQ . factor   (rule 52)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 126
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 98
+
+    term  ->  factor GEQ . factor   (rule 53)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 127
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 99
+
+    term  ->  factor EQ . factor   (rule 54)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 128
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 100
+
+    term  ->  factor NEQ . factor   (rule 55)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    factor	go to state 129
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 101
+
+    primary  ->  primary TIMES . unit   (rule 60)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    unit	go to state 130
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 102
+
+    primary  ->  primary SLASH . unit   (rule 61)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    unit	go to state 131
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 103
+
+    unit  ->  identifier LPAREN . RPAREN   (rule 67)
+    unit  ->  identifier LPAREN . argList RPAREN   (rule 68)
+
+    RPAREN	shift, and go to state 132
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    argList	go to state 133
+    expression	go to state 112
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 104
+
+    arrayVar  ->  identifier LBRACKET . expression RBRACKET   (rule 73)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 134
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 105
+
+    stmt  ->  COUT AARROW coutList . SEMICOLON   (rule 24)
+    coutList  ->  coutList . AARROW coutItem   (rule 39)
+
+    SEMICOLON	shift, and go to state 135
+    AARROW	shift, and go to state 136
+
+
+
+state 106
+
+    coutList  ->  coutItem .   (rule 40)
+
+    $default	reduce using rule 40 (coutList)
+
+
+
+state 107
+
+    coutItem  ->  expression .   (rule 42)
+
+    $default	reduce using rule 42 (coutItem)
+
+
+
+state 108
+
+    coutItem  ->  stringLiteral .   (rule 41)
+
+    $default	reduce using rule 41 (coutItem)
+
+
+
+state 109
+
+    stmt  ->  target ASSIGN expression . SEMICOLON   (rule 22)
+
+    SEMICOLON	shift, and go to state 137
+
+
+
+state 110
+
+    stmt  ->  identifier LPAREN RPAREN . SEMICOLON   (rule 31)
+
+    SEMICOLON	shift, and go to state 138
+
+
+
+state 111
+
+    stmt  ->  identifier LPAREN argList . RPAREN SEMICOLON   (rule 32)
+    argList  ->  argList . COMMA expression   (rule 33)
+
+    RPAREN	shift, and go to state 139
+    COMMA	shift, and go to state 140
+
+
+
+state 112
+
+    argList  ->  expression .   (rule 34)
+
+    $default	reduce using rule 34 (argList)
+
+
+
+state 113
+
+    target  ->  identifier LBRACKET expression . RBRACKET   (rule 77)
+
+    RBRACKET	shift, and go to state 141
+
+
+
+state 114
+
+    stmt  ->  PRINT LPAREN printList RPAREN . SEMICOLON   (rule 23)
+
+    SEMICOLON	shift, and go to state 142
+
+
+
+state 115
+
+    printList  ->  printList COMMA . printItem   (rule 35)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    STRINGLITERAL	shift, and go to state 80
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    printItem	go to state 143
+    expression	go to state 83
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    stringLiteral	go to state 84
+    identifier	go to state 75
+
+
+
+state 116
+
+    stmt  ->  LBRACE varList stmtList RBRACE .   (rule 28)
+
+    $default	reduce using rule 28 (stmt)
+
+
+
+state 117
+
+    stmt  ->  IF LPAREN expression RPAREN . stmt   (rule 25)
+    stmt  ->  IF LPAREN expression RPAREN . stmt ELSE stmt   (rule 26)
+
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 144
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 118
+
+    stmt  ->  WHILE LPAREN expression RPAREN . stmt   (rule 27)
+
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 145
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 119
+
+    unit  ->  LPAREN expression RPAREN .   (rule 71)
+
+    $default	reduce using rule 71 (unit)
+
+
+
+state 120
+
+    ORlist  ->  ORlist OR ANDexpression .   (rule 45)
+
+    $default	reduce using rule 45 (ORlist)
+
+
+
+state 121
+
+    ANDlist  ->  ANDlist AND term .   (rule 48)
+
+    $default	reduce using rule 48 (ANDlist)
+
+
+
+state 122
+
+    factor  ->  factor PLUS primary .   (rule 57)
+    primary  ->  primary . TIMES unit   (rule 60)
+    primary  ->  primary . SLASH unit   (rule 61)
+
+    TIMES	shift, and go to state 101
+    SLASH	shift, and go to state 102
+
+    $default	reduce using rule 57 (factor)
+
+
+
+state 123
+
+    factor  ->  factor MINUS primary .   (rule 58)
+    primary  ->  primary . TIMES unit   (rule 60)
+    primary  ->  primary . SLASH unit   (rule 61)
+
+    TIMES	shift, and go to state 101
+    SLASH	shift, and go to state 102
+
+    $default	reduce using rule 58 (factor)
+
+
+
+state 124
+
+    term  ->  factor LT factor .   (rule 50)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 50 (term)
+
+
+
+state 125
+
+    term  ->  factor GT factor .   (rule 51)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 51 (term)
+
+
+
+state 126
+
+    term  ->  factor LEQ factor .   (rule 52)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 52 (term)
+
+
+
+state 127
+
+    term  ->  factor GEQ factor .   (rule 53)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 53 (term)
+
+
+
+state 128
+
+    term  ->  factor EQ factor .   (rule 54)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 54 (term)
+
+
+
+state 129
+
+    term  ->  factor NEQ factor .   (rule 55)
+    factor  ->  factor . PLUS primary   (rule 57)
+    factor  ->  factor . MINUS primary   (rule 58)
+
+    PLUS	shift, and go to state 93
+    MINUS	shift, and go to state 94
+
+    $default	reduce using rule 55 (term)
+
+
+
+state 130
+
+    primary  ->  primary TIMES unit .   (rule 60)
+
+    $default	reduce using rule 60 (primary)
+
+
+
+state 131
+
+    primary  ->  primary SLASH unit .   (rule 61)
+
+    $default	reduce using rule 61 (primary)
+
+
+
+state 132
+
+    unit  ->  identifier LPAREN RPAREN .   (rule 67)
+
+    $default	reduce using rule 67 (unit)
+
+
+
+state 133
+
+    argList  ->  argList . COMMA expression   (rule 33)
+    unit  ->  identifier LPAREN argList . RPAREN   (rule 68)
+
+    RPAREN	shift, and go to state 146
+    COMMA	shift, and go to state 140
+
+
+
+state 134
+
+    arrayVar  ->  identifier LBRACKET expression . RBRACKET   (rule 73)
+
+    RBRACKET	shift, and go to state 147
+
+
+
+state 135
+
+    stmt  ->  COUT AARROW coutList SEMICOLON .   (rule 24)
+
+    $default	reduce using rule 24 (stmt)
+
+
+
+state 136
+
+    coutList  ->  coutList AARROW . coutItem   (rule 39)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    STRINGLITERAL	shift, and go to state 80
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    coutItem	go to state 148
+    expression	go to state 107
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    stringLiteral	go to state 108
+    identifier	go to state 75
+
+
+
+state 137
+
+    stmt  ->  target ASSIGN expression SEMICOLON .   (rule 22)
+
+    $default	reduce using rule 22 (stmt)
+
+
+
+state 138
+
+    stmt  ->  identifier LPAREN RPAREN SEMICOLON .   (rule 31)
+
+    $default	reduce using rule 31 (stmt)
+
+
+
+state 139
+
+    stmt  ->  identifier LPAREN argList RPAREN . SEMICOLON   (rule 32)
+
+    SEMICOLON	shift, and go to state 149
+
+
+
+state 140
+
+    argList  ->  argList COMMA . expression   (rule 33)
+
+    ID  	shift, and go to state 9
+    INTLITERAL	shift, and go to state 25
+    TRUE	shift, and go to state 59
+    FALSE	shift, and go to state 60
+    LPAREN	shift, and go to state 61
+    MINUS	shift, and go to state 62
+
+    expression	go to state 150
+    ORexpression	go to state 64
+    ORlist	go to state 65
+    ANDexpression	go to state 66
+    ANDlist	go to state 67
+    term	go to state 68
+    factor	go to state 69
+    primary	go to state 70
+    unit	go to state 71
+    nameVar	go to state 72
+    arrayVar	go to state 73
+    intLiteral	go to state 74
+    identifier	go to state 75
+
+
+
+state 141
+
+    target  ->  identifier LBRACKET expression RBRACKET .   (rule 77)
+
+    $default	reduce using rule 77 (target)
+
+
+
+state 142
+
+    stmt  ->  PRINT LPAREN printList RPAREN SEMICOLON .   (rule 23)
+
+    $default	reduce using rule 23 (stmt)
+
+
+
+state 143
+
+    printList  ->  printList COMMA printItem .   (rule 35)
+
+    $default	reduce using rule 35 (printList)
+
+
+
+state 144
+
+    stmt  ->  IF LPAREN expression RPAREN stmt .   (rule 25)
+    stmt  ->  IF LPAREN expression RPAREN stmt . ELSE stmt   (rule 26)
+
+    ELSE	shift, and go to state 151
+
+    $default	reduce using rule 25 (stmt)
+
+
+
+state 145
+
+    stmt  ->  WHILE LPAREN expression RPAREN stmt .   (rule 27)
+
+    $default	reduce using rule 27 (stmt)
+
+
+
+state 146
+
+    unit  ->  identifier LPAREN argList RPAREN .   (rule 68)
+
+    $default	reduce using rule 68 (unit)
+
+
+
+state 147
+
+    arrayVar  ->  identifier LBRACKET expression RBRACKET .   (rule 73)
+
+    $default	reduce using rule 73 (arrayVar)
+
+
+
+state 148
+
+    coutList  ->  coutList AARROW coutItem .   (rule 39)
+
+    $default	reduce using rule 39 (coutList)
+
+
+
+state 149
+
+    stmt  ->  identifier LPAREN argList RPAREN SEMICOLON .   (rule 32)
+
+    $default	reduce using rule 32 (stmt)
+
+
+
+state 150
+
+    argList  ->  argList COMMA expression .   (rule 33)
+
+    $default	reduce using rule 33 (argList)
+
+
+
+state 151
+
+    stmt  ->  IF LPAREN expression RPAREN stmt ELSE . stmt   (rule 26)
+
+    ID  	shift, and go to state 9
+    PRINT	shift, and go to state 44
+    LBRACE	shift, and go to state 45
+    IF  	shift, and go to state 46
+    WHILE	shift, and go to state 47
+    RETURN	shift, and go to state 48
+    COUT	shift, and go to state 49
+
+    stmt	go to state 152
+    target	go to state 51
+    identifier	go to state 52
+
+
+
+state 152
+
+    stmt  ->  IF LPAREN expression RPAREN stmt ELSE stmt .   (rule 26)
+
+    $default	reduce using rule 26 (stmt)
+
+
+
+state 153
+
+    $   	go to state 154
+
+
+
+state 154
+
+    $   	go to state 155
+
+
+
+state 155
+
+    $default	accept
+
+

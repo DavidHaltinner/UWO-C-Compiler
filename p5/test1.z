@@ -1,0 +1,15 @@
+int j(int x, int y){ //tests function call, arithmatic operations, as well as print statements it should return 7 as the answer
+	int z; 
+	z = 3;
+	z = x + y + z;
+	print(z);print("\n");
+	return z;
+}
+int main(){ //tests the main function, calls a function, and prints. Should print 7.
+	int y;
+	int x;
+	x = 2;
+	y = j(2, x);
+	print(y);print("\n");
+	return 1;
+}

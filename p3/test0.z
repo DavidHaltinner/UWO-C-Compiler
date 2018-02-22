@@ -1,0 +1,13 @@
+// test0.z
+
+int x;
+
+void x( )
+{
+    x = 4;
+    x = x-2;
+    x = x+2;
+    print( a );
+    print( 3 );
+}
+

@@ -1,0 +1,93 @@
+source file: test.z
+...parse
+...unparse
+     3: int  x;
+     4: bool x[3];
+     6: void x(int  x)
+     6: {
+     8:    while ((x < 5))
+     8:    {
+     9:       x[x] = true;
+    10:       x = (x - 2);
+     8:    }
+    12:    return;
+     6: }
+    15: bool t(bool b[], int  x[], int  y, bool c)
+    15: {
+    16:    int  t[3];
+    17:    bool i[9];
+    18:    int  o;
+    19:    bool k;
+    21:    t[o] = i[t[o]];
+    22:    if (c)
+    22:    {
+    23:       print("hi",x[0],"there");
+    24:       print(c);
+    22:    }
+    27:    if (true)
+    27:       print("yup");
+    27:    else
+    28:       print("nope");
+    30:    while (false)
+    31:       print("notta chance",(i + 1),(j - 1),(k * 1),(o / 1),(5 + 4));
+    33:    y = (5 * (((y - 3) * (2 + 4)) * (y / 9)));
+    34:    y = -3;
+    35:    c = true;
+    36:    c = false;
+    37:    i[o] = k;
+    39:    if ((((c && k) || (x[1] < 4)) || (c && (y > -4))))
+    39:    {
+    40:       if ((1 == 1))
+    40:       {
+    41:          print("hi");
+    50:          cout<<"hi"<<9<<false<<c<<-888;
+    51:          cout<<c[9];
+    52:          cout<<"hi";
+    40:       }
+    40:       else
+    56:       {
+    57:          print(444,"Won't see");
+    56:       }
+    60:       if (c)
+    60:          print("me");
+    39:    }
+    39:    else
+    62:       if (((((y == y) || (y != o)) || (y <= 8)) || (y >= 9)))
+    62:       {
+    63:          x[0] = 7;
+    64:          print("no");
+    62:       }
+    62:       else
+    66:       {
+    67:          print("yes");
+    68:          x(y);
+    66:       }
+    71:    return (false && true);
+    15: }
+    74: int  main()
+    74: {
+    75:    int  y[10];
+    76:    bool j[10];
+    77:    int  i;
+    79:    i = 0;
+    80:    i = ((i * i) / 2);
+    81:    i = ((i + i) - 2);
+    82:    i = (i + (i * 2));
+    83:    i = (i - (i / 2));
+    85:    i = x(y);
+    87:    j[9] = t(j, y, y[4], j[8]);
+    89:    while ((1 == 1))
+    89:    {
+    90:       while ((true && (7 < 6)))
+    90:       {
+    91:          while ((false || (8 == 8)))
+    91:          {
+    92:             if ((1 == 1))
+    92:             {
+    93:                print("true");
+    92:             }
+    91:          }
+    90:       }
+    89:    }
+    98:    return 0;
+    74: }

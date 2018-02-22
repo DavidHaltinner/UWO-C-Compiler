@@ -1,0 +1,13 @@
+int x(){ int b[3]; b=4; return true;}
+void q() { return; }
+int main(){
+	int y;
+	bool z;
+	z = x();
+	y = x;
+	x = 6;
+	x = x;
+	print(y);
+	print(q);
+	q = q();
+}

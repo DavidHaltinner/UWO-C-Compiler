@@ -1,0 +1,22 @@
+void j(){return;}
+int k(int e){return e;}
+int y(){
+	int z[3];
+	bool y;
+	z[y] = z[1];
+	z[2] = z[y];
+	z[3] = z;
+	k(j);
+	print(j, z, y, 3, "hi");
+	return y+4;
+}
+int main(){
+	if(k(2)&&j<3||true+3==false-4){
+		return 2;
+	}
+	return 3;
+}
+
+int e() { int i; i = 3; return i;}
+
+void x() { return; }

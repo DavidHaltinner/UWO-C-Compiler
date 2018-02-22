@@ -1,0 +1,19 @@
+int x;
+bool j[3];
+
+int k(int i, int j, int l[], bool t[]){
+	//cout << "hi" << x << "there";
+ 	if(j[2] == j[1]) print("this");
+	else print("not this");
+        if(x==x) {
+		//cout<<"this";
+	}
+}
+
+int main(){
+	if(x==x||j&&j){
+		while(x > x - x){
+			print("hi", x, j[x]);	
+		}
+	}
+}

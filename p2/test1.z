@@ -1,0 +1,17 @@
+// test1.z 
+x int ;   int[3] x;
+x void( bool x[] )
+{
+  ( x<5 ) { while 
+    x[x] = true; 
+    x-2 = x;
+  }
+}
+()int x }
+  3 = x;  
+  else ( x==4) 
+        x[0] = false;
+  if{
+        x[0] true = ;
+  }
+  1 ; return {

@@ -1,0 +1,44 @@
+// test of various types of globals
+
+int x;
+bool y;
+int w[2];
+bool z[2];
+
+int t(){
+	int x;
+	bool z;
+	z = true && y; // 1st true 2nd false
+	x = 99;
+	// 1st the then is executed 
+	// 2nd the else is executed
+	if(z){
+		print("z is ", z, " x is ", x);
+		print("\n");
+		x = 3;
+	}
+	else{
+		print("z failed", "\n");
+		x = 1;
+	}
+
+	return x;
+}
+
+int main(){
+	y = 3 == 3 && 4 < 5 && 7 != 9; // true
+	x = 7;
+	print("X before ", x, "\n"); 
+	w[0] = t();
+	print("X after ", x, "\n");
+	y = false;
+	z[0] = false;
+	z[1] = false;
+	w[1] = t();
+	// this executes
+	if(w[0] != w[1]){
+		print("Just as I thought", "\n");
+		print("W[0] is ", w[0], " and W[1] is ", w[1], "\n");
+	}
+	return 1;
+}

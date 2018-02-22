@@ -1,0 +1,5 @@
+int x () {return 4; }
+int k(int j[]){
+	j[1] = j + k;
+}
+int main(){}

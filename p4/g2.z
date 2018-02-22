@@ -1,0 +1,17 @@
+int x;
+void prnt(int j, bool t, int o){
+	int i;
+	i = 14;
+	t = true;
+	while(i < 14){
+		int t;
+		print("first", j, "second", i, "third", t);
+	}
+	return;
+}
+
+int main(){
+	int e;
+	x = 45;
+	e = x + 2;
+}

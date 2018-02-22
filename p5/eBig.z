@@ -1,0 +1,17 @@
+// This is a test to use all 8 registers
+
+int main(){
+	int x;
+	int y;
+	int z;
+	x = 1;
+	y = 2;
+	z = 3;
+
+	// Lets use all of the registers
+	x = x + x * (3 + 4 * (z + 3 * (4 * 1)));
+	
+	// Print the value 64
+	print("X is ", x, " and it uses a lot of registers");
+	print("\n");
+}

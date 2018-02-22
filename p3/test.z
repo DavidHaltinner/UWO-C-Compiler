@@ -1,0 +1,99 @@
+// test.z
+
+int x;
+bool  x[3];
+
+void x( int x )
+{
+  while ( x<5 ) {
+    x[x] = true;
+    x = x-2;
+  }
+  return;
+}
+
+bool t( bool b[], int x[], int y, bool c){
+	int t[3];
+	bool i[9];
+	int o;
+	bool k;
+	
+	t[o] = i[t[o]];
+	if(c){
+		print("hi", x[0], "there");
+		print(c);
+	}
+
+	if(true) print("yup");
+	else print("nope");
+
+	while(false) 
+		print("notta chance", i+1, j-1, k*1, o/1, 5+4);
+
+	y = 5*((y - 3)*(2+4)*(y/9));
+	y = -3;
+	c = true;
+	c = false;
+	i[o] = k;
+		
+	if(c&&k||x[1]<4||c&&y>-4){
+		if(1==1){
+			print("hi");
+
+			// NOTE: This is an a+ project, so cout
+			// works/ z3 though is not an a+ project
+			// hence this must be commented out to 
+			// do diff with p3.out and z3.out
+
+			// !---------These do work-------------!
+			// ------comment to test with z3--------
+			cout << "hi" << 9 << false << c << -888;
+			cout << c[9];
+			cout << "hi";
+			// --------------------------------------
+				
+		}
+		else{
+			print(444, "Won't see");
+		}
+
+		if(c) print("me");
+	}
+	else if(y==y||y!=o||y<=8||y>=9){
+		x[0] = 7;
+		print("no");
+	}
+	else{
+		print("yes");
+		x(y);
+	}
+
+	return (false&&true);
+}
+
+int main(){
+	int y[10];
+	bool j[10];
+	int i;
+
+	i = 0;
+	i = i*i/2;
+	i = i+i-2;
+	i = i+i*2;
+	i = i-i/2;
+
+	i = x(y);
+	
+	j[9] = t(j, y, y[4], j[8]);
+
+	while(1==1){
+		while(true&&7<6){
+			while(false||8==8){
+				if(1==1){
+					print("true");
+				}
+			}
+		}
+	}	
+	return 0;
+}  

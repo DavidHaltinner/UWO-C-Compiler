@@ -1,0 +1,67 @@
+zinc.descr        IMPRECISE description of zinc
+
+notation:   {    }    zero or more instances (like Kleene closure)
+
+symbol       meaning
+ID           identifier
+TYPE         int   bool
+BINOP        +   -   *   /   <  >  <=  >=  ==  !=  ||  &&
+
+program
+  GlobalVariableList FunctionList
+
+variableDecl
+  TYPE ID ';'                     //scalar variable  int  x;
+  TYPE ID '[' INTLIT ']' ';'      //array            bool y[4];
+variableList
+  empty
+  variableDecl { variableDecl }   //e.g. int x; int y; int z; bool b;
+GlobalVariableList
+  variableList
+
+parameterDecl
+  TYPE ID           //scalar variable  int  x
+  TYPE ID '[' ']'   //array            bool b[]
+parameterList
+  empty
+  parameterDecl { , parameterDecl }
+statementList
+  { statement }
+functionDecl
+  void ID '(' parameterList ')' '{' variableList statementList '}'
+  TYPE ID '(' parameterList ')' '{' variableList statementList '}'
+FunctionList
+  functionDecl { functionDecl }
+
+item
+  stringLiteral  //e.g. "hello"  "\n"
+  expression
+itemList
+  item { , item }
+argument
+  expression
+argumentList
+  empty
+  argument { , argument }
+statement
+  ID                    '=' expression ';' //assignment e.g. x=4+z;
+  ID '[' expression ']' '=' expression ';' //assignment e.g. x[4]=4+z;
+  print '(' itemList ')' ';'               //print      e.g. print("\n");
+  if '(' expression ')' statement                 //if (if-then)
+  if '(' expression ')' statement else statement  //if (if-then-else)
+  while '(' expression ')' statement              //while
+  '{' variableList statementList '}'   //block (compound statement)
+  return ';'                           //return  e.g. return;
+  return expression ';'                //return  e.g. return 0;
+  ID '(' argumentList ')' ';'          //procedure call
+
+expression                      example
+  integerLiteral                  5
+  '-' integerLiteral              -6
+  ID '[' expression ']'           x[5]      //arrayVar
+  ID                              x         //nameVar
+  true                            true      //bool constant
+  false                           false     //bool constant
+  ID '(' argumentList ')'         x(y[6],r) //function call
+  '(' expression ')'              (x+y)     //paranthesized expression
+  expression BINOP expression     x()<z     //12 binary operators

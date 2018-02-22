@@ -1,0 +1,26 @@
+// this is just a test of string labels for print
+
+int main(){
+	print("This is a test of the labeling");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+	print("I hope this works");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+	print("I hope this works");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+	print("I hope this works");
+	print("\n");
+	print("This is a");
+	print("\n");
+	print("This is a test of the labeling");
+	print("\n");
+}

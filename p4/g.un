@@ -1,0 +1,42 @@
+source file: g.z
+...parse
+...name check
+...type check
+...unparse
+   functionName<parameters:locals:frameSize>;
+   variableName<offset>
+     1: int  x;
+     3: int  t <5:11:72> (
+     3:       int  i <0> , 
+     3:       int  j <4> , 
+     4:       bool k <8> , 
+     5:       int  w <12> [], 
+     6:       bool q <16> [])
+     3: {
+     9:    int  o <28> ;
+    10:    bool e <32> ;
+    12:    e = true;
+    14:    if (e)
+    14:    {
+    15:       bool c <52> [5];
+    16:       int  v <60> [2];
+    17:       int  z <64> ;
+    18:       int  w <68> ;
+    19:       z = (z + w);
+    14:    }
+    22:    o = i;
+    24:    return o;
+     3: }
+    27: bool j <1:0:12> (
+    27:       int  k <0> )
+    27: {
+    27:    return true;
+    27: }
+    29: int  main <0:4:24> ()
+    29: {
+    31:    int  i <8> ;
+    32:    int  k <20> [3];
+    33:    i = 2;
+    35:    print((1 + 2) <IntType>,"hi there" <StringType>,true <BoolType>,i <IntType>,k[1] <IntType>);
+    36:    return 0;
+    29: }

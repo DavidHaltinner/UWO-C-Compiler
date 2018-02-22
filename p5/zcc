@@ -1,0 +1,16 @@
+#! /bin/csh
+
+# usage
+# zcc test
+
+echo ""
+echo "p5" $1.z
+
+./p5 $1.z
+if ( $status != 0 ) exit -1
+
+echo "...assemble and execute"
+echo "spim  -file  " $1".s"
+
+/home/perrie/spim/bin/spim   -file   $1.s
+echo ""

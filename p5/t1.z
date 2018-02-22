@@ -1,0 +1,22 @@
+// t1.z
+// A demonstration of bools and if
+// it also prints intLits and global ints, and string lits
+
+int  x; int  y;
+bool b; bool t; bool f;
+
+int main()
+{
+  x = 3; y = x; print( x, " ", y, " ", 5 ); print("\n");
+
+  if (true ) print("true"); else print("false"); print("\n");
+  if (false) print("true"); else print("false"); print("\n");
+
+  t = true; f = false;
+  b = true ; if (b) print("true"); else print("false"); print("\n");
+  b = false; if (b) print("true"); else print("false"); print("\n");
+  b = t    ; if (b) print("true");                      print("\n");
+  t = f    ; if (t) print("true"); else print("false"); print("\n");
+
+  return 0;
+}

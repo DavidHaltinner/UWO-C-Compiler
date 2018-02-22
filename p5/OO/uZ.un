@@ -1,0 +1,30 @@
+source file: test.z
+...parse
+...name check
+...type check
+...unparse
+   functionName<parameters:locals:frameSize>;
+   variableName<offset>
+     1: int  j <2:1:20> (
+     1:       int  x <0> , 
+     1:       int  y <4> )
+     1: {
+     2:    int  z <16> ;
+     3:    z = 3;
+     4:    z = ((x + y) + z);
+     5:    return z;
+     1: }
+     8: void t <3:0:20> (
+     8:       int  z <0> , 
+     8:       int  q <4> [], 
+     8:       bool e <8> )
+     8: {
+     8: }
+    10: int  main <0:5:28> ()
+    10: {
+    11:    int  y <20> [4];
+    12:    int  x <24> ;
+    14:    y[1] = (((x + 3) + x) - (y[3] * 2));
+    17:    return 1;
+    10: }
+...emit code

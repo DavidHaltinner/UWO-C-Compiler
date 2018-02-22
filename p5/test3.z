@@ -1,0 +1,47 @@
+int x; //test global variables
+bool y;
+int w[2];
+bool q[2];
+
+int z(int i, bool b, int v[], bool n[]){ //tests functin calls
+	int t;
+	int h[2];
+	bool p[2];
+	bool m;
+	h[1] = i; //local arrays
+	h[0] = h[1] + 3 + v[0] / x; //mathematic operations with local arrays
+	t = 1 + (x - i) / v[0] * v[1] - w[0] + w[1];
+	m = b && i != 6 || b && t <= 4; //boolean math with local variables
+	p[1] = true;
+	p[0] = p[1] && b && y && q[0] && q[1];
+	print(1,2,3, true, false,  "\n"); //a bunch of prints
+	print("t is local and it is...", t, "\n");
+	print("m is local and it is ...", m, "\n");
+	print("p[1] is local and it is ...", p[1], "\n");
+	print("h[0] is local and it is ...", h[0], "\n");
+	print("i is a param and it is ...", i, "\n");
+	print("v[1] is a param and it is ...", v[1], "\n");
+	print("n[0] is a param and it is ...", n[0], "\n");
+	print("b is a param and it is ...", b, "\n");
+	print("x is global and it is ...", x, "\n");
+	print("y is global and it is ...", y, "\n");
+	print("w[0] is global and it is ...", w[0], "\n");
+	print("q[1] is global and it is ...", q[1], "\n");
+	return h[1];
+}
+
+int main(){ //math with global and local arrays and variabales, as well as a funtion call
+	int try;
+	int tArray[2];
+	tArray[0] = 1;
+	tArray[1] = 9;
+	x = 1 + 3 + 2;
+	y = false;
+	w[0] = x * x;
+	w[1] = x / 5;
+	q[0] = true;
+	q[1] = false;
+	try = z(w[1], y, w, q);
+	try = z(tArray[1], y, tArray, q);
+	return w[1];
+}

@@ -1,0 +1,19 @@
+void x(int y, int z, int w){
+	while(3 && y ){
+		bool z;
+		z = 2;
+		z = true;
+		z = z + 4;
+		w = z;
+
+		if(z + 2 < 3 + y){
+			print(z);
+		}
+		if(z){
+			print("hi");
+		} 
+	}
+}
+
+int main(){
+}

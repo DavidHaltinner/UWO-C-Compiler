@@ -1,0 +1,36 @@
+// test of global arrays and while loops
+
+int x[3];
+bool y[3];
+
+void fill(){
+	int j[3];
+	bool k[3];
+	int i;
+	i = 0;
+	while(i < 3){
+		j[i] = i;
+		x[i] = j[i]; // 0, 1
+		y[i] = true;
+		k[i] = y[i]; // true
+		print("k[", i, "] is ", k[i], "\n");
+		print("j[", i, "] is ", j[i], "\n"); 
+		i = i + 1;
+	}
+}
+
+void printItems(){
+	int i;
+	i = 0;
+	while(i < 3){
+		print("y[", i, "] is ", y[i], "\n"); 
+		print("x[", i, "] is ", x[i], "\n"); 
+		i = i + 1;
+	}
+}
+
+int main(){
+	fill();
+	printItems();
+	return 1;
+}

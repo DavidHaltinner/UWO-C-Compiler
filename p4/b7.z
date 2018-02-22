@@ -1,0 +1,27 @@
+int main;
+
+int
+  j
+	() {}
+int
+	j	
+		() {}
+int z(){
+	  int 
+	 k
+	;
+	 int
+	k
+	 ;
+	bool
+	  j
+	 ;
+	bool
+	 k
+	[9]
+	  ;
+	int
+	 k
+	[9]
+	  ;
+}

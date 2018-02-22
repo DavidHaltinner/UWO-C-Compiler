@@ -1,0 +1,23 @@
+#! /bin/csh
+
+# usage
+# zoc test
+
+echo "p5" $1.z
+
+./p5    $1.z
+if ( $status != 0 ) exit -1
+
+echo "...peephole optimization"
+/home/perrie/spim/bin/copt  peephole.rules  <$1.s  >$1.S
+
+echo "...assemble and execute"
+echo "/home/perrie/spim/bin/spim  -file  " $1".S"
+
+/home/perrie/spim/bin/spim  -file  $1.S
+
+echo ""
+echo ""
+echo "differences between" $1".s and" $1".S:"
+diff  $1.s  $1.S
+echo ""

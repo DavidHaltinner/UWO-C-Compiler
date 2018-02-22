@@ -1,0 +1,33 @@
+int x;
+int
+z
+[4]
+;
+
+
+int main(bool x, bool y[]){
+	return ((x*x) + (y*y));
+}
+
+bool test(){
+	bool x;
+	bool y;
+	bool z;
+	while(1) print("hi", "there", "list");
+	return (x||y&&(x||y&&z));
+}
+
+void jah(){
+	int x;
+	x = 3*4+5-4/3-6+4;
+	test
+	()
+	;
+	x
+	=
+	2
+	;
+	test();
+}
+
+

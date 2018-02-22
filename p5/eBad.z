@@ -1,0 +1,11 @@
+// This is a test to run out of registers
+
+int main(){
+	int x;
+	int y;
+	int z;
+	x = 1;
+	z = 3;
+	// Now lets break the compiler
+	x = x - x / (3 - 4 / (z - 3 / (4 - 4 / 1)));
+}

@@ -1,0 +1,24 @@
+// test of assignment of functions and while
+
+bool t(bool y){
+	bool z;
+	// z is true
+	// y is true
+	z = y || y && false;
+	print(z, "\n", y, "\n");
+	return true;
+}
+
+int main(){
+	int x;
+	x = 3;
+	while(x > 0){
+		bool z;
+		print("Test: ", x, "\n");
+		z = t(true);
+		// z is true
+		print("t returns: ", z, "\n");
+		x = x - 1;
+	}
+	return 1;
+}

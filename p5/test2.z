@@ -1,0 +1,6 @@
+int main(){ //tests printing and arithmatic operations plus, multiply, and divide. Should print "x is 28" followed by a new line
+	int x;
+	x = 2 + 3 * 5 / 4 * 8 + 2;
+	print("x is ", x, "\n");
+	return x;
+}
